@@ -1,9 +1,9 @@
 {
-  "name": "electron-react-ts",
-  "description": "An Electron boilerplate",
-  "version": "1.8.0",
+  "name": "@ginlink/translate",
+  "description": "A translate app",
+  "version": "0.1.0",
   "license": "MIT",
-  "author": "sprout2000",
+  "author": "ginlink",
   "main": "dist/main.js",
   "scripts": {
     "predev": "rimraf dist",
