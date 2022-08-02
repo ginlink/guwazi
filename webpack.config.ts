@@ -1,6 +1,9 @@
 import { Configuration } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
+import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
+import path from 'path';
 
 const isDev = process.env.NODE_ENV === 'development';
 
@@ -8,6 +11,10 @@ const common: Configuration = {
   mode: isDev ? 'development' : 'production',
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
+    // alias: {
+    //   '@': path.resolve(__dirname, 'src'),
+    // },
+    // plugins: [new TsconfigPathsPlugin()]
   },
   externals: ['fsevents'],
   output: {
@@ -61,6 +68,7 @@ const renderer: Configuration = {
     new HtmlWebpackPlugin({
       template: './src/web/index.html',
     }),
+    // new NodePolyfillPlugin()
   ],
 };
 

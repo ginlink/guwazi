@@ -124,6 +124,7 @@ export const Typography = styled.div<BaseTypographyProps>`
   line-height: 1.25;
   font-weight: 500;
   font-size: 16px;
+  white-space: nowrap;
   color: ${({ theme, error }) => (error ? theme.colors.failure : 'inherit')};
 
   ${variant({

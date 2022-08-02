@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { Box } from 'rebass';
 import './App.css';
+import { Button } from './components/MyButton';
+import { Typography } from './theme';
 
 const { myAPI } = window;
 
@@ -19,6 +22,12 @@ export const App = () => {
       <div>
         <button onClick={onCountDown}>&#x25BC;</button>
         <button onClick={onCountUp}>&#x25B2;</button>
+
+        <Box p={'8px'}>
+          <Button variant='blueViolet'>
+            <Typography>文字</Typography>
+          </Button>
+        </Box>
       </div>
     </div>
   );
