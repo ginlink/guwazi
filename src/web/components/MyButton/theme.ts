@@ -1,5 +1,5 @@
 import { scales, variants } from './types'
-import {MyTheme} from '../../theme'
+import { MyTheme } from '../../theme'
 
 export const scaleVariants = {
   [scales.MD]: {
