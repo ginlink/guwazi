@@ -1,4 +1,4 @@
-# electron-react-ts
+# Guwazi
 
 <img src="https://user-images.githubusercontent.com/52094761/154874997-a6fea4fa-49da-46c6-9b54-6f0f0d4cf6d2.svg#gh-light-mode-only" width="100%">
 <img src="https://user-images.githubusercontent.com/52094761/154875034-abe01e30-6a82-4e55-928e-c31d88c39b07.svg#gh-dark-mode-only" width="100%">
