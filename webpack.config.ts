@@ -11,7 +11,10 @@ const common: Configuration = {
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
     alias: {
-      '@': path.resolve(__dirname, 'src'),
+      '@': path.resolve(__dirname, 'src', 'renderer'),
+      '~': path.resolve(__dirname, 'src'),
+      '#': path.resolve(__dirname, 'src', 'universal'),
+      '##': path.resolve(__dirname, 'src', 'main'),
     },
     plugins: [new TsconfigPathsPlugin()],
   },

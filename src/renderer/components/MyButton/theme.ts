@@ -1,4 +1,4 @@
-import { MyTheme } from '@/renderer/theme'
+import { MyTheme } from '@/theme'
 import { scales, variants } from './types'
 
 export const scaleVariants = {

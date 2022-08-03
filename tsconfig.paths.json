@@ -3,8 +3,17 @@
     "baseUrl": ".",
     "paths": {
       "@/*": [
-        "./src/*"
-      ]
+        "src/renderer/*"
+      ],
+      "~/*": [
+        "src/*"
+      ],
+      "#/*": [
+        "src/universal/*"
+      ],
+      "##/*": [
+        "src/main/*"
+      ],
     }
   }
 }
