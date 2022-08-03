@@ -1,20 +1,19 @@
-import { Configuration } from 'webpack';
-import HtmlWebpackPlugin from 'html-webpack-plugin';
-import MiniCssExtractPlugin from 'mini-css-extract-plugin';
-import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin';
-import NodePolyfillPlugin from 'node-polyfill-webpack-plugin';
-import path from 'path';
+import { Configuration } from 'webpack'
+import HtmlWebpackPlugin from 'html-webpack-plugin'
+import MiniCssExtractPlugin from 'mini-css-extract-plugin'
+import TsconfigPathsPlugin from 'tsconfig-paths-webpack-plugin'
+import path from 'path'
 
-const isDev = process.env.NODE_ENV === 'development';
+const isDev = process.env.NODE_ENV === 'development'
 
 const common: Configuration = {
   mode: isDev ? 'development' : 'production',
   resolve: {
     extensions: ['.js', '.ts', '.jsx', '.tsx', '.json'],
-    // alias: {
-    //   '@': path.resolve(__dirname, 'src'),
-    // },
-    // plugins: [new TsconfigPathsPlugin()]
+    alias: {
+      '@': path.resolve(__dirname, 'src'),
+    },
+    plugins: [new TsconfigPathsPlugin()],
   },
   externals: ['fsevents'],
   output: {
@@ -39,7 +38,7 @@ const common: Configuration = {
   },
   watch: isDev,
   devtool: isDev ? 'inline-source-map' : undefined,
-};
+}
 
 const main: Configuration = {
   ...common,
@@ -47,7 +46,7 @@ const main: Configuration = {
   entry: {
     main: './src/main.ts',
   },
-};
+}
 
 const preload: Configuration = {
   ...common,
@@ -55,22 +54,21 @@ const preload: Configuration = {
   entry: {
     preload: './src/preload.ts',
   },
-};
+}
 
 const renderer: Configuration = {
   ...common,
   target: 'web',
   entry: {
-    app: './src/web/index.tsx',
+    app: './src/renderer/index.tsx',
   },
   plugins: [
     new MiniCssExtractPlugin(),
     new HtmlWebpackPlugin({
-      template: './src/web/index.html',
+      template: './src/renderer/index.html',
     }),
-    // new NodePolyfillPlugin()
   ],
-};
+}
 
-const config = isDev ? renderer : [main, preload, renderer];
-export default config;
+const config = isDev ? renderer : [main, preload, renderer]
+export default config

@@ -4,9 +4,11 @@
     "module": "ES2020",
     "esModuleInterop": true,
     "moduleResolution": "Node",
+    "sourceMap": true,
     "lib": [
       "DOM",
-      "ES2020"
+      "dom.iterable",
+      "esnext"
     ],
     "jsx": "react-jsx",
     "strict": true
@@ -17,5 +19,8 @@
       "module": "CommonJS"
     }
   },
+  "exclude": [
+    "node_modules"
+  ],
   "extends": "./tsconfig.paths.json"
 }
