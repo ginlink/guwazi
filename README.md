@@ -5,25 +5,21 @@
 
 An [Electron](https://www.electronjs.org/) boilerplate with hot reloading for [React](https://reactjs.org/) and [TypeScript](https://www.typescriptlang.org/).
 
-[![GitHub license](https://img.shields.io/github/license/sprout2000/electron-react-ts)](https://github.com/sprout2000/electron-react-ts/blob/main/LICENSE.md)
-[![GitHub stars](https://img.shields.io/github/stars/sprout2000/electron-react-ts)](https://github.com/sprout2000/electron-react-ts/stargazers)
+[![GitHub license](https://img.shields.io/github/license/ginlink/guwazi)](https://github.com/ginlink/guwazi/blob/main/LICENSE.md)
+[![GitHub stars](https://img.shields.io/github/stars/ginlink/guwazi)](https://github.com/ginlink/guwazi/stargazers)
 
 ## :green_book: Usage
 
 ```sh
-$ git clone https://github.com/sprout2000/electron-react-ts.git
-$ cd electron-react-ts
-$ npm install
+$ git clone https://github.com/ginlink/guwazi.git
+$ cd guwazi
+$ yarn
 
 # on development
-$ npm run dev
+$ yarn dev
 
 # on production
-$ npm run build && npm run package
+$ yarn build && yarn package
 ```
 
 _NOTE: You will need to have [Node.js](https://nodejs.org/) and [Git](https://git-scm.com/) installed._
-
-## :copyright: Copyright
-
-Copyright (c) 2021 sprout2000

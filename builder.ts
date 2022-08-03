@@ -1,8 +1,8 @@
-import { build } from 'electron-builder';
+import { build } from 'electron-builder'
 
 build({
   config: {
-    productName: 'Sample',
+    productName: 'Guwazi',
     artifactName: '${productName}-${version}-${platform}-${arch}.${ext}',
     files: ['dist/**/*'],
     directories: {
@@ -19,4 +19,4 @@ build({
       target: ['default'],
     },
   },
-});
+})
