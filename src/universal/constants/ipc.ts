@@ -1,0 +1,2 @@
+export const MINIMIZE_WINDOW = 'MINIMIZE_WINDOW'
+export const CLOSE_WINDOW = 'CLOSE_WINDOW'
