@@ -16,6 +16,7 @@ export default function Header() {
   const handleMinimize = useCallback(() => {
     systemAPI.minimizeWindow()
   }, [])
+
   const handleCloce = useCallback(() => {
     systemAPI.closeWindow()
   }, [])
@@ -37,7 +38,9 @@ export default function Header() {
             </Typography>
           </Flex>
         </Box>
-      ) : null}
+      ) : (
+        <Box style={{ width: 0 }} />
+      )}
     </StyledFlex>
   )
 }

@@ -31,7 +31,7 @@ const ResetCSS = createGlobalStyle`
     line-height: 1;
     font-size: 16px;
     color: ${({ theme }) => theme.colors.text1};
-    background: rgba(14, 6, 22,1);
+    background: ${({ theme }) => theme.colors.bg0};
 
     font-variant: none;
     -webkit-font-smoothing: antialiased;

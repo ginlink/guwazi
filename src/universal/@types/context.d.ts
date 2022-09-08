@@ -7,9 +7,14 @@ export interface ISystemAPI {
   platform: () => NodeJS.Platform
 }
 
+export interface IGuwaziAPI {
+  translate: (input: any) => Promise<any>
+}
+
 declare global {
   interface Window {
     myAPI: IElectronAPI
     systemAPI: ISystemAPI
+    guwaziAPI: IGuwaziAPI
   }
 }

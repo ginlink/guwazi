@@ -1,7 +1,8 @@
+import { Guwazi } from '@ginlink/guwazi-core'
 import { app, BrowserWindow, ipcMain, session } from 'electron'
 import { searchDevtools } from 'electron-search-devtools'
 import path from 'path'
-import { CLOSE_WINDOW, MINIMIZE_WINDOW } from '../../universal/constants'
+import { CLOSE_WINDOW, MINIMIZE_WINDOW, TRANSLATE } from '../../universal/constants'
 
 const isDev = process.env.NODE_ENV !== 'production'
 const ROOT_DIR = isDev ? path.resolve(__dirname, '../..') : __dirname
@@ -18,6 +19,12 @@ if (isDev) {
 }
 
 class LifeCycle {
+  guwazi: Guwazi
+
+  constructor() {
+    this.guwazi = new Guwazi()
+  }
+
   private async beforeReady() {
     console.log('[beforeReady]:')
   }
@@ -26,8 +33,8 @@ class LifeCycle {
     const readyFunction = async () => {
       console.log('on ready')
       const options: Electron.BrowserWindowConstructorOptions = {
-        height: 450,
-        width: 800,
+        width: 400,
+        height: 350,
         show: true,
         frame: true,
         center: true,
@@ -56,6 +63,46 @@ class LifeCycle {
 
       ipcMain.on('update-title', (_e, arg) => {
         mainWindow.setTitle(`Electron React TypeScript: ${arg}`)
+      })
+
+      ipcMain.on(TRANSLATE, async (_, input: any) => {
+        const guwazi = this.guwazi
+
+        guwazi.setConfig({
+          'translate.youdao': {
+            appKey: '796774f424aa0625',
+            key: 'YKnbybN4JaVm2prhirUGbVa0sUNvnoCx',
+          },
+        })
+
+        console.log('[input]:', input)
+
+        // await guwazi.translate('哈哈哈哈，你是谁？')
+        await guwazi.translate(input)
+
+        console.log('[结果]:', guwazi.output)
+
+        return guwazi.output
+      })
+
+      ipcMain.handle('guwazi:translate', async (_, input) => {
+        const guwazi = this.guwazi
+
+        guwazi.setConfig({
+          'translate.youdao': {
+            appKey: '796774f424aa0625',
+            key: 'YKnbybN4JaVm2prhirUGbVa0sUNvnoCx',
+          },
+        })
+
+        console.log('[input]:', input)
+
+        // await guwazi.translate('哈哈哈哈，你是谁？')
+        await guwazi.translate(input)
+
+        console.log('[结果]:', guwazi.output)
+
+        return guwazi.output
       })
 
       ipcMain.on(MINIMIZE_WINDOW, () => {
