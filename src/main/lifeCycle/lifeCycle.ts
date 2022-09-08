@@ -28,7 +28,7 @@ class LifeCycle {
       const options: Electron.BrowserWindowConstructorOptions = {
         height: 450,
         width: 800,
-        show: false,
+        show: true,
         frame: true,
         center: true,
         fullscreenable: false,
@@ -42,6 +42,7 @@ class LifeCycle {
           preload: path.join(ROOT_DIR, 'preload.js'),
         },
       }
+
       if (process.platform === 'win32') {
         // 针对windows平台做出不同的配置
         options.show = true // 创建即展示
