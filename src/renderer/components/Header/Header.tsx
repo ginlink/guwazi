@@ -1,10 +1,8 @@
-import { Typography } from '@/theme'
 import { Icon } from '@iconify/react'
+import { Box, Stack, styled, Typography } from '@mui/material'
 import { useCallback } from 'react'
-import { Box, Flex } from 'rebass'
-import styled from 'styled-components'
 
-const StyledFlex = styled(Flex)``
+const StyledFlex = styled(Stack)``
 
 const { systemAPI } = window
 
@@ -24,19 +22,19 @@ export default function Header() {
   return (
     <StyledFlex className="drag" alignItems={'center'} justifyContent={'space-between'}>
       <Box style={{ width: 0 }} />
-      <Flex justifyContent={'center'}>
-        <Typography variant="small">Guwazi - {version}</Typography>
-      </Flex>
+      <Stack direction={'row'} justifyContent={'center'}>
+        <Typography>Guwazi - {version}</Typography>
+      </Stack>
       {OS === 'win32' ? (
         <Box>
-          <Flex className="no-drag">
+          <Stack direction={'row'} className="no-drag">
             <Typography style={{ cursor: 'pointer' }} onClick={handleMinimize}>
               <Icon icon="akar-icons:circle-minus" />
             </Typography>
             <Typography ml={'4px'} style={{ cursor: 'pointer' }} onClick={handleCloce}>
               <Icon icon="ant-design:close-circle-outlined" />
             </Typography>
-          </Flex>
+          </Stack>
         </Box>
       ) : (
         <Box style={{ width: 0 }} />

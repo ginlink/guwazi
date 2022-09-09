@@ -1,14 +1,17 @@
-import { Header } from './components/Header'
-import Home from './pages/Home'
-import { Box } from '@mui/material'
-import './App.css'
+import { Header } from './components/Header';
+import './App.css';
+import { HashRouter } from 'react-router-dom';
+import Pages from './routes/Pages';
+import Footer from './components/Footer';
+import ScrollToTop from './components/ScrollToTop';
 
 export const App = () => {
   return (
-    <Box p={['8px']}>
+    <HashRouter>
+      <ScrollToTop />
       <Header />
-
-      <Home />
-    </Box>
-  )
-}
+      <Pages />
+      <Footer />
+    </HashRouter>
+  );
+};
