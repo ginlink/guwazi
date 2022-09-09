@@ -1,27 +1,37 @@
-import { FlattenSimpleInterpolation } from 'styled-components'
-import { Breakpoints, Colors, MediaQueries, Radii, Shadows, Spacing, ZIndices } from './types'
+import React, { useMemo } from 'react';
+import { CssBaseline } from '@mui/material';
+import {
+  ThemeProvider as MUIThemeProvider,
+  createTheme,
+  StyledEngineProvider,
+} from '@mui/material/styles';
+import palette from './palette';
+import typography from './typography';
+import componentsOverride from './overrides';
+import shadows, { customShadows } from './shadows';
+import { MyTheme } from './types';
 
-export interface MyTheme {
-  siteWidth: number
-  isDark: boolean
-  colors: Colors
-  breakpoints: Breakpoints
-  mediaQueries: MediaQueries
-  spacing: Spacing
-  shadows: Shadows
-  radii: Radii
-  zIndices: ZIndices
+export default function ThemeProvider({ children }: { children: React.ReactNode }) {
+  const themeOptions: any = useMemo(
+    () => ({
+      palette,
+      shape: { borderRadius: 8 },
+      typography,
+      shadows,
+      customShadows,
+    }),
+    [],
+  );
 
-  // css snippets
-  flexColumnNoWrap: FlattenSimpleInterpolation
-  flexRowNoWrap: FlattenSimpleInterpolation
+  const theme = createTheme(themeOptions) as unknown as MyTheme;
+  theme.components = componentsOverride(theme);
+
+  return (
+    <StyledEngineProvider injectFirst>
+      <MUIThemeProvider theme={theme}>
+        <CssBaseline />
+        {children}
+      </MUIThemeProvider>
+    </StyledEngineProvider>
+  );
 }
-
-export { darkColors, lightColors } from './colors'
-export { default as dark } from './dark'
-export { default as light } from './light'
-export { default as klein } from './klein'
-export * from './base'
-export * from './text'
-export * from './types'
-export * from './globalStyle'
