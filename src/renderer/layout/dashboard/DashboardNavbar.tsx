@@ -1,5 +1,5 @@
 import { Header } from '@/components/Header';
-import { alpha, AppBar, Box, styled, Typography } from '@mui/material';
+import { alpha, AppBar, Box, styled } from '@mui/material';
 import NavAction from './NavAction';
 
 const DRAWER_WIDTH = 168;

@@ -15,8 +15,8 @@ const navConfig: NavProp[] = [
     icon: getIcon('ant-design:setting-filled'),
     children: [
       {
-        title: 'Setting11',
-        path: '/dashboard/setting',
+        title: '有道配置',
+        path: '/dashboard/translate-config/youdao',
       },
     ],
   },

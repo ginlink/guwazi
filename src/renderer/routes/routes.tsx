@@ -6,15 +6,6 @@ import Translate from '@/pages/Translate';
 import TranslateConfig from '@/pages/TranslateConfig';
 import { Navigate, useRoutes } from 'react-router-dom';
 
-function generateTranslateConfigChildren() {
-  return [
-    {
-      path: 'youdao',
-      element: <TranslateConfig />,
-    },
-  ];
-}
-
 function Router() {
   return useRoutes([
     {
@@ -26,9 +17,8 @@ function Router() {
           element: <Translate />,
         },
         {
-          path: 'translate-config',
+          path: 'translate-config/:pluginShortName',
           element: <TranslateConfig />,
-          children: generateTranslateConfigChildren(),
         },
         {
           path: 'setting',

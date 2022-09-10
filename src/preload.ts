@@ -1,3 +1,4 @@
+import { StringKeyMap } from '@ginlink/guwazi-core';
 import { contextBridge, ipcRenderer } from 'electron';
 import { CLOSE_WINDOW, MINIMIZE_WINDOW, WRITE_CLIPBOARD } from './universal/constants';
 
@@ -15,4 +16,10 @@ contextBridge.exposeInMainWorld('systemAPI', {
 
 contextBridge.exposeInMainWorld('guwaziAPI', {
   translate: (input: any) => ipcRenderer.invoke('guwazi:translate', input),
+
+  getPluginConfig: (pluginName: string) => ipcRenderer.invoke('guwazi:getPluginConfig', pluginName),
+
+  saveConfig: (config: StringKeyMap<any>) => ipcRenderer.invoke('guwazi:saveConfig', config),
+
+  getConfig: (name?: string) => ipcRenderer.invoke('guwazi:getConfig', name),
 });

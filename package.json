@@ -19,12 +19,14 @@
   "dependencies": {
     "@emotion/react": "^11.10.4",
     "@emotion/styled": "^11.10.4",
-    "@ginlink/guwazi-core": "^0.1.0",
+    "@ginlink/guwazi-core": "^0.1.1",
     "@iconify/react": "^3.2.2",
     "@mui/material": "^5.10.4",
+    "lodash": "^4.17.21",
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "react-dynamic-material-form": "^0.1.0",
     "react-router-dom": "6",
     "simplebar-react": "^2.4.1"
   },
