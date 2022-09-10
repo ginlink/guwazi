@@ -25,7 +25,8 @@
     "polished": "^4.2.2",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
-    "react-router-dom": "6"
+    "react-router-dom": "6",
+    "simplebar-react": "^2.4.1"
   },
   "devDependencies": {
     "@ginlink/eslint-config": "^0.1.2",

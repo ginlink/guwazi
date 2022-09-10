@@ -35,8 +35,10 @@ class LifeCycle {
   private onReady() {
     const readyFunction = async () => {
       const options: Electron.BrowserWindowConstructorOptions = {
-        width: 400,
-        height: 350,
+        // width: 400,
+        // height: 350,
+        width: 800,
+        height: 450,
         show: true,
         // frame: true,
         frame: false,

@@ -5,7 +5,12 @@ import Typography from '@mui/material/Typography';
 import { styled } from '@mui/system';
 
 import dividerBg from '@/assets/images/divider.svg';
-import { getPageHeight } from '@/routes/Pages/utils';
+
+function getPageHeight(theme: Theme) {
+  const topSpacing = Number(theme.mixins.toolbar.minHeight) + parseInt(theme.spacing(1));
+
+  return `calc(100vh - ${topSpacing}px)`;
+}
 
 const FlexBox = styled(Box)({
   display: 'flex',
@@ -81,4 +86,5 @@ export {
   RowEnd,
   Column,
   ColumnCenter,
+  getPageHeight,
 };

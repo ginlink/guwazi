@@ -4,7 +4,9 @@ import Typography from '@mui/material/Typography';
 
 import { CenteredFlexBox, FullSizeCenteredFlexBox } from '@/components/styled';
 import { giphy404, messages } from '@/constants';
-import { useLocation } from 'react-router-dom';
+import { Box, Button } from '@mui/material';
+
+import { NavLink as RouterLink, useLocation } from 'react-router-dom';
 
 function NotFound() {
   const location = useLocation();
@@ -29,6 +31,12 @@ function NotFound() {
           <Typography variant="h4" sx={{ color: (theme) => theme.palette.info.main }}>
             {messages[404]}
           </Typography>
+
+          <Box mt={['16px']}>
+            <Button variant={'contained'} component={RouterLink} to={'/'}>
+              Go Home
+            </Button>
+          </Box>
         </CenteredFlexBox>
       </FullSizeCenteredFlexBox>
     </Container>
